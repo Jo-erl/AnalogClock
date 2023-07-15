@@ -1,15 +1,17 @@
 @import url("https://fonts.cdnfonts.com/css/poppins");
 
 * {
-
   font-family: "poppins", sans-serif;
 }
+
 body {
   display: flex;
+  flex-direction: column; /* Set flex-direction to column */
   justify-content: center;
   align-items: center;
   min-height: 100vh;
   background: #161616;
+  overflow-y: scroll; /* Enable vertical scrolling */
 }
 
 .clock {
@@ -20,52 +22,54 @@ body {
   justify-content: center;
   align-items: center;
   background: url(clock.webp);
-  position: fixed;
   background-size: cover;
   border: 4px solid #e0e0e0;
   border-radius: 50%;
   box-shadow: 0 -15px 15px rgba(255, 255, 255, 0.05),
     inset 0 -15px 15px rgba(255, 255, 255, 0.05), 0 15px 15px rgba(0, 0, 0, 0.3),
     inset 0 15px 15px rgba(0, 0, 0, 0.3);
+  position: relative; /* Add relative positioning to the clock container */
 }
 
-.clock::before {
-  content: "";
-  position: fixed;
-  width: 15px;
-  height: 15px;
-  background: #fff;
-  border-radius: 50%;
-  z-index: 10000;
-}
 .clock .hour,
 .clock .min,
 .clock .sec {
-  position: fixed;
+  position: absolute;
+  
 }
+
 .clock .hour,
 .hr {
   width: 160px;
   height: 160px;
+  
 }
+
 .clock .min,
 .mn {
   width: 190px;
   height: 190px;
+    border-radius: 100%;
+
 }
+
 .clock .sec,
 .sc {
   width: 230px;
   height: 230px;
+    border-radius: 100%;
+
 }
+
 .hr,
 .mn,
 .sc {
   display: flex;
   justify-content: center;
-  position: absolute;
-  border-radius: 50%;
+  align-items: flex-end; /* Adjust alignment within the clock container */
+  border-radius: 100%;
 }
+
 .hr:before {
   content: "";
   position: absolute;
@@ -74,7 +78,10 @@ body {
   background: #fffe;
   z-index: 10;
   border-radius: 6px 6px 0 0;
+  border-radius: 50%;
+
 }
+
 .mn:before {
   content: "";
   position: absolute;
@@ -83,7 +90,10 @@ body {
   background: #fff;
   z-index: 11;
   border-radius: 6px 6px 0 0;
+  border-radius: 50%;
+
 }
+
 .sc:before {
   content: "";
   position: absolute;
@@ -92,33 +102,45 @@ body {
   background: #ff8c11;
   z-index: 12;
   border-radius: 6px 6px 0 0;
+  border-radius: 50%;
+
 }
 
 #currentDate {
-  position: fixed;
   text-align: center;
   font-size: 18px;
   font-weight: bold;
   color: #ff8c11;
-  bottom: 1%;
-
+  position: relative; /* Set position to relative */
+  margin-bottom: 10px; /* Add margin-bottom to create space */
 }
 
 #currentTime {
-  position: fixed;
-  bottom: 5%;
   text-align: center;
   font-size: 18px;
   font-weight: bold;
   color: #e0e0e0;
+  position: relative; /* Set position to relative */
+  margin-bottom: 80px; /* Add margin-bottom to create space */
 }
 
 #holidayMessage {
-  position: fixed;
-  bottom: 5%;
   text-align: center;
   font-size: 18px;
   font-weight: bold;
   color: #02a607;
+  position: relative; /* Set position to relative */
+  margin-bottom: 20px; /* Add margin-bottom to create space */
 }
 
+.footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background-color: #070707;
+  color: #ffffff;
+  padding: 5px;
+  text-align: center;
+  font-size: 14px;
+}
