@@ -2,6 +2,9 @@
 
 * {
   font-family: "poppins", sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 body {
@@ -125,14 +128,30 @@ body {
   margin-bottom: 20px; /* Add margin-bottom to create space */
 }
 
-.footer {
-  position: fixed;
-  bottom: 0;
-  left: 0;
+/*=============== FOOTER2 ===============*/
+
+.footer2 {
   width: 100%;
-  background-color: #070707;
-  color: #ffffff;
-  padding: 5px;
   text-align: center;
+  padding: 10px 0; /* Adjust the padding as needed */
+  background-color: #000000;
+  position: fixed;
   font-size: 14px;
+  color: rgb(255, 255, 255);
+  margin: 0; 
+  left: 0; 
+  right: 0; 
+  bottom: 0;
+}
+.footer2 p{
+  color: #aaaaaa;
+}
+
+/* Add this media query at the end of your CSS */
+@media screen and (max-width: 768px) {
+  .clock {
+    width: 270px; 
+    height: 270px; 
+    background-size: contain; 
+  }
 }
