@@ -1,5 +1,5 @@
 <h1>Analog Clock</h1>
-Analog Clock is a simple JavaScript application that displays an elegant analog clock. It provides a user-friendly interface with clearly visible numbers, a vibrant red second hand, and a dark background to prevent eye strain.<br><br>
+A simple JavaScript application that displays an elegant analog clock.<br><br>
 
 <a href="https://jo-erl.github.io/AnalogClock/">Demo Link</a><br><br>
 
