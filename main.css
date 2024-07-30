@@ -1,26 +1,62 @@
-@import url("https://fonts.cdnfonts.com/css/poppins");
+/*FONTS*/
+@font-face {
+  font-family: "MTNBrighterSans";
+  src: url("ttf/MTNBrighterSans-Regular.ttf") format("truetype");
+  font-weight: 400; /* Regular weight */
+}
 
+@font-face {
+  font-family: "MTNBrighterSans";
+  src: url("ttf/MTNBrighterSans-Medium.ttf") format("truetype");
+  font-weight: 500; /* Medium weight */
+}
+
+@font-face {
+  font-family: "MTNBrighterSans";
+  src: url("ttf/MTNBrighterSans-ExtraBold.ttf") format("truetype");
+  font-weight: 700; /* Extra weight */
+}
+/*=======================================================*/
 * {
-  font-family: "poppins", sans-serif;
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
-
+/*=======================================================*/
 body {
+  font-family: "MTNBrighterSans", sans-serif;
+
   display: flex;
-  flex-direction: column; /* Set flex-direction to column */
-  justify-content: center;
+  flex-direction: column;
+  justify-content: space-between;
   align-items: center;
   min-height: 100vh;
-  background: #161616;
-  overflow-y: scroll; /* Enable vertical scrolling */
+  background: #cccccc;
+  margin: 0;
+  padding: 0;
 }
-
+/*=======================================================*/
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  flex-grow: 1;
+  width: 100%;
+  padding: 20px;
+}
+/*=======================================================*/
+.clock-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+/*=======================================================*/
 .clock {
   width: 400px;
   height: 400px;
-  margin-bottom: 10%;
+  margin-bottom: 40px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -31,10 +67,9 @@ body {
   box-shadow: 0 -15px 15px rgba(255, 255, 255, 0.05),
     inset 0 -15px 15px rgba(255, 255, 255, 0.05), 0 15px 15px rgba(0, 0, 0, 0.3),
     inset 0 15px 15px rgba(0, 0, 0, 0.3);
-  position: relative; /* Add relative positioning to the clock container */
+  position: relative;  
 }
-
-
+/*=======================================================*/
 .clock::before {
   content: "";
   position: absolute;
@@ -44,27 +79,31 @@ body {
   border-radius: 50%;
   z-index: 10000;
 }
-
+/*=======================================================*/
 .clock .hour,
 .clock .min,
 .clock .sec {
   position: absolute;
 }
+/*=======================================================*/
 .clock .hour,
 .hr {
   width: 160px;
   height: 160px;
 }
+/*=======================================================*/
 .clock .min,
 .mn {
   width: 190px;
   height: 190px;
 }
+/*=======================================================*/
 .clock .sec,
 .sc {
   width: 230px;
   height: 230px;
 }
+/*=======================================================*/
 .hr,
 .mn,
 .sc {
@@ -73,85 +112,138 @@ body {
   position: absolute;
   border-radius: 50%;
 }
+/*=======================================================*/
 .hr:before {
   content: "";
   position: absolute;
   width: 8px;
   height: 80px;
-  background: #fffe;
+  background: rgba(0, 0, 0, 0.933);
   z-index: 10;
   border-radius: 6px 6px 0 0;
 }
+/*=======================================================*/
 .mn:before {
   content: "";
   position: absolute;
   width: 4px;
   height: 90px;
-  background: #fff;
+  background: #000000;
   z-index: 11;
   border-radius: 6px 6px 0 0;
 }
+/*=======================================================*/
 .sc:before {
   content: "";
   position: absolute;
   width: 2px;
   height: 150px;
-  background: #ff8c11;
+  background: #c50000;
   z-index: 12;
   border-radius: 6px 6px 0 0;
 }
-
+/*=======================================================*/
 #currentDate {
   text-align: center;
   font-size: 18px;
   font-weight: bold;
-  color: #ff8c11;
-  position: relative; /* Set position to relative */
-  margin-bottom: 10px; /* Add margin-bottom to create space */
+  color: #000000;
+  position: relative; 
+  margin-bottom: 10px; 
 }
-
+/*=======================================================*/
 #currentTime {
   text-align: center;
   font-size: 18px;
   font-weight: bold;
-  color: #e0e0e0;
-  position: relative; /* Set position to relative */
-  margin-bottom: 80px; /* Add margin-bottom to create space */
+  color: #c50000;
+  position: relative;  
+  margin-bottom: 80px;  
 }
-
+/*=======================================================*/
 #holidayMessage {
   text-align: center;
   font-size: 18px;
   font-weight: bold;
   color: #02a607;
-  position: relative; /* Set position to relative */
-  margin-bottom: 20px; /* Add margin-bottom to create space */
+  position: relative;
+  margin-bottom: 20px; 
 }
-
-/*=============== FOOTER2 ===============*/
-
-.footer2 {
-  width: 100%;
-  text-align: center;
-  padding: 10px 0; /* Adjust the padding as needed */
-  background-color: #000000;
-  position: fixed;
-  font-size: 14px;
-  color: rgb(255, 255, 255);
-  margin: 0; 
-  left: 0; 
-  right: 0; 
-  bottom: 0;
-}
-.footer2 p{
-  color: #aaaaaa;
-}
-
-/* Add this media query at the end of your CSS */
+/*=======================================================*/
 @media screen and (max-width: 768px) {
   .clock {
     width: 270px; 
     height: 270px; 
     background-size: contain; 
   }
+
+  .container {
+    padding: 10px;
+  }
 }
+/*=======================================================*/
+/*FOOTER*/
+.footer {
+  background-color: rgb(0, 0, 0);
+  color: white;
+  padding: 12px 0;
+  overflow: hidden;
+  position: relative;
+  bottom: 0;
+  width: 100%;
+}
+
+.footer-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  text-align: center;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.footer.reveal .footer-content {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.footer::before {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(
+    to bottom right,
+    rgba(255, 255, 255, 0.05) 0%,
+    rgba(255, 255, 255, 0.02) 50%,
+    transparent 100%
+  );
+  transform: rotate(45deg);
+  z-index: 1;
+}
+
+.footer-content {
+  position: relative;
+  z-index: 2;
+}
+
+.logo a {
+  font-size: 32px;
+  font-weight: bold;
+  color: white;
+  text-decoration: none;
+  margin-bottom: 16px;
+  display: inline-block;
+}
+
+.logo span {
+  color: red;
+}
+
+.copyright {
+  font-size: 15px;
+  color: grey;
+}
+/*=======================================================*/

@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html>
   <head>
     <title>Analog Clock by JoErl</title>
@@ -12,41 +13,78 @@
     <link rel="stylesheet" type="text/css" href="main.css" />
     <link rel="icon" href="favicon.png" type="image/x-icon" />
   </head>
-
+  <!--=======================================================-->
   <body>
-    <section>
-      <div class="clock">
-        <div class="hour"><div class="hr" id="hr"></div></div>
-        <div class="min"><div class="mn" id="mn"></div></div>
-        <div class="sec"><div class="sc" id="sc"></div></div>
+    <div class="container">
+      <section>
+        <div class="clock">
+          <div class="hour"><div class="hr" id="hr"></div></div>
+          <div class="min"><div class="mn" id="mn"></div></div>
+          <div class="sec"><div class="sc" id="sc"></div></div>
+        </div>
+      </section>
+      <!--=======================================================-->
+      <section class="date-time">
+        <div id="currentDate"></div>
+        <div id="currentTime"></div>
+        <!--<div id="holidayMessage"></div>-->
+      </section>
+    </div>
+    <!--=======================================================-->
+    <!--Footer-->
+    <footer class="footer">
+      <div class="footer-content">
+        <div class="logo">
+          <a href="#">Joel Anang<span>.</span></a>
+        </div>
+        <p class="copyright">
+          Copyright &copy;
+          <script>
+            document.write(new Date().getFullYear());
+          </script>
+          All rights reserved
+        </p>
       </div>
-  
-    </section>
-
-    <section class="date-time">
-      <div id="currentDate"></div>
-      <div id="currentTime"></div>
-      <!--<div id="holidayMessage"></div>-->
-    </section>
- 
-
-
-   <!--Footer2-->
-<section class="footer2">
-
-  <p>All Rights Reserved &copy; <span id="currentYear"></span> <a href="https://jo-erl.github.io/joelanangportfolio/" style="color: rgb(0, 255, 68);" target="_blank">JoErl</a></p>
-
-  <script>
-    // JavaScript to automatically update the year
-    document.getElementById("currentYear").textContent = new Date().getFullYear();
-  </script>
-</section>
-<!--End of Footer-->
+    </footer>
+    <!--Footer end-->
+    <!--=======================================================-->
 
     <script
       language="javascript"
       type="text/javascript"
       src="script.js"
     ></script>
+
+    <script>
+      //=======================================================//
+      // Footer functionality
+      const footer = document.querySelector("footer");
+      const currentYearSpan = document.querySelector(".current-year");
+
+      // Set the current year in the footer
+      if (currentYearSpan) {
+        currentYearSpan.textContent = new Date().getFullYear();
+      }
+
+      function handleScroll() {
+        // Footer reveal animation
+        const footerRect = footer.getBoundingClientRect();
+        const windowHeight = window.innerHeight;
+
+        if (footerRect.bottom <= windowHeight + 100) {
+          footer.classList.add("reveal");
+        } else {
+          footer.classList.remove("reveal");
+        }
+
+        // Footer parallax effect
+        const scrollPosition = window.pageYOffset;
+        const parallaxOffset = scrollPosition * 0.3;
+        footer.style.backgroundPositionY = `${parallaxOffset}px`;
+      }
+
+      window.addEventListener("scroll", handleScroll);
+      handleScroll();
+    </script>
   </body>
 </html>
