@@ -31,60 +31,10 @@
       </section>
     </div>
     <!--=======================================================-->
-    <!--Footer-->
-    <footer class="footer">
-      <div class="footer-content">
-        <div class="logo">
-          <a href="#">Joel Anang<span>.</span></a>
-        </div>
-        <p class="copyright">
-          Copyright &copy;
-          <script>
-            document.write(new Date().getFullYear());
-          </script>
-          All rights reserved
-        </p>
-      </div>
-    </footer>
-    <!--Footer end-->
-    <!--=======================================================-->
-
     <script
       language="javascript"
       type="text/javascript"
       src="script.js"
     ></script>
-
-    <script>
-      //=======================================================//
-      // Footer functionality
-      const footer = document.querySelector("footer");
-      const currentYearSpan = document.querySelector(".current-year");
-
-      // Set the current year in the footer
-      if (currentYearSpan) {
-        currentYearSpan.textContent = new Date().getFullYear();
-      }
-
-      function handleScroll() {
-        // Footer reveal animation
-        const footerRect = footer.getBoundingClientRect();
-        const windowHeight = window.innerHeight;
-
-        if (footerRect.bottom <= windowHeight + 100) {
-          footer.classList.add("reveal");
-        } else {
-          footer.classList.remove("reveal");
-        }
-
-        // Footer parallax effect
-        const scrollPosition = window.pageYOffset;
-        const parallaxOffset = scrollPosition * 0.3;
-        footer.style.backgroundPositionY = `${parallaxOffset}px`;
-      }
-
-      window.addEventListener("scroll", handleScroll);
-      handleScroll();
-    </script>
   </body>
 </html>
